@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JDI SYSTEM - Enterprise User Manual & System Architecture</title>
+  <meta name="description" content="Complete interactive online user manual and system progress report for JDI System inventory, sales, purchases, warehouse, and management workflows.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header class="top-header">
+    <div class="header-left">
+      <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="#hero" class="brand-wrapper">
+        <img src="assets/favicon.svg" alt="JDI System Logo" class="brand-logo">
+        <div class="brand-text">
+          <h1>JDI SYSTEM</h1>
+          <span>Enterprise User Manual &middot; v1.1</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-center">
+      <button class="quick-search-trigger" id="searchTrigger" title="Quick Search (Ctrl + K)">
+        <div class="search-placeholder">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Search manual, modules, steps...</span>
+        </div>
+        <kbd class="kbd-shortcut">Ctrl K</kbd>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <div class="progress-pill" title="Test verification checklist progress">
+        <svg class="progress-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span id="progressText">0 / 22 Steps Tested</span>
+      </div>
+
+      <button class="icon-btn" id="fontDecBtn" title="Decrease font size" aria-label="Decrease font size">
+        <span style="font-size: 0.8rem; font-weight: 700;">A-</span>
+      </button>
+      <button class="icon-btn" id="fontIncBtn" title="Increase font size" aria-label="Increase font size">
+        <span style="font-size: 0.95rem; font-weight: 700;">A+</span>
+      </button>
+
+      <button class="icon-btn" id="printBtn" title="Print or Save PDF" aria-label="Print or Save PDF">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+      </button>
+
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle theme" aria-label="Toggle theme">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="mainSidebar">
+      <div class="sidebar-section-title">Overview</div>
+      <div class="nav-group">
+        <a href="#hero" class="nav-link active">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Introduction</span>
+          </div>
+        </a>
+        <a href="#system-progress" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>System Architecture</span>
+          </div>
+          <span class="badge badge-test">11 Modules</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section-title">Purchases Module</div>
+      <div class="nav-group">
+        <a href="#guide-purchase-order" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span>Purchase Order (PO)</span>
+          </div>
+          <span class="badge badge-test">Testing</span>
+        </a>
+        <a href="#guide-purchase-receiving" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Purchase Receiving (RR)</span>
+          </div>
+          <span class="badge badge-test">Testing</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section-title">Sales Module</div>
+      <div class="nav-group">
+        <a href="#guide-sales-order" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>Sales Order (SO)</span>
+          </div>
+          <span class="badge badge-test">Testing</span>
+        </a>
+        <a href="#guide-sales-invoice" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>Sales Invoice (SI)</span>
+          </div>
+          <span class="badge badge-test">Testing</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section-title">Products Master</div>
+      <div class="nav-group">
+        <a href="#guide-add-product" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            <span>Adding New Products</span>
+          </div>
+        </a>
+        <a href="#guide-edit-product" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            <span>Viewing & Editing</span>
+          </div>
+        </a>
+        <a href="#guide-price-changes" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Scheduled Price Change</span>
+          </div>
+        </a>
+        <a href="#guide-export-products" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Exporting to Excel</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="sidebar-section-title">Deployment & Reference</div>
+      <div class="nav-group">
+        <a href="#deployment-notes" class="nav-link">
+          <div class="nav-link-content">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>Deploy Online Guide</span>
+          </div>
+          <span class="badge badge-live">Ready</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Hero Header -->
+      <section class="hero-card" id="hero">
+        <div class="hero-badge-row">
+          <span class="badge badge-primary">Official System Manual</span>
+          <span class="badge badge-test">Testing & Verification Phase</span>
+          <span class="badge badge-live">Self-Contained Static Web</span>
+        </div>
+        <h2 class="hero-title">JDI SYSTEM — Complete User Manual & Progress Architecture</h2>
+        <p class="hero-subtitle">
+          Interactive, production-ready operational manual and feature matrix for the JDI Enterprise Inventory, Distribution, Sales, Purchases, Warehouse, and Management System.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#guide-purchase-order" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Start Step-by-Step Guides</span>
+          </a>
+          <a href="#system-progress" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>View Architecture Matrix</span>
+          </a>
+        </div>
+
+        <div class="hero-stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-num">11</div>
+              <div class="stat-label">Core System Modules</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-num">8</div>
+              <div class="stat-label">Detailed Workflows</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-num">35</div>
+              <div class="stat-label">High-Res UI Screenshots</div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="stat-num">22</div>
+              <div class="stat-label">Interactive Checklist Steps</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: System Progress Report / Architecture Matrix -->
+      <section id="system-progress" style="margin-bottom: 50px;">
+        <div class="section-header">
+          <div class="section-header-left">
+            <div class="section-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>System Progress Report & Architecture</span>
+            </div>
+            <h3 class="section-title">Core System Modules & Scope Breakdown</h3>
+            <p class="section-desc">
+              Comprehensive audit of all 11 core sub-systems within the JDI Platform, outlining active features, verification status, and module functions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="module-filter-bar">
+          <button class="filter-btn active" data-filter="all">All Modules (11)</button>
+          <button class="filter-btn" data-filter="purchases">Purchases</button>
+          <button class="filter-btn" data-filter="sales">Sales</button>
+          <button class="filter-btn" data-filter="management">Management</button>
+          <button class="filter-btn" data-filter="inventory">Inventory</button>
+          <button class="filter-btn" data-filter="warehouse">Warehouse</button>
+          <button class="filter-btn" data-filter="customer">Customer</button>
+          <button class="filter-btn" data-filter="products">Products</button>
+          <button class="filter-btn" data-filter="suppliers">Suppliers</button>
+          <button class="filter-btn" data-filter="salesman">Salesman</button>
+          <button class="filter-btn" data-filter="branch">Branch</button>
+          <button class="filter-btn" data-filter="hr">HR</button>
+        </div>
+
+        <!-- Matrix Cards Grid -->
+        <div class="modules-grid">
+
+          <!-- 1. Purchases -->
+          <div class="module-card" data-category="purchases">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </div>
+                <span>PURCHASES</span>
+              </div>
+              <span class="badge badge-test">For Testing</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Purchase Order (PO)</span>
+                <span class="submodule-desc">Create & encode purchase orders to suppliers with item quantities, purchase costs, payment terms, and Days of Inventory (DOI) recommendations.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Purchase Receiving (RR)</span>
+                <span class="submodule-desc">Receive incoming supplier deliveries against open POs, verify quantities, update batch numbers, assign bin locations, and stock in items.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">PO Report</span>
+                <span class="submodule-desc">Comprehensive tracking of all purchase orders, fulfillment progress, and supplier totals.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">PO Returns & Return Report</span>
+                <span class="submodule-desc">Return damaged or incorrect goods to suppliers, generate return debit slips, and audit supplier debit adjustments.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Supplier Credit Memo</span>
+                <span class="submodule-desc">Record and manage credit memos issued by suppliers against payables.</span>
+              </li>
+            </ul>
+            <div class="module-card-footer">
+              <a href="#guide-purchase-order" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">View PO User Guide &rarr;</a>
+              <a href="#guide-purchase-receiving" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">View RR Guide &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 2. Sales -->
+          <div class="module-card" data-category="sales">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                </div>
+                <span>SALES</span>
+              </div>
+              <span class="badge badge-test">For Testing</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Create Sales Order (SO)</span>
+                <span class="submodule-desc">Encode new customer sales orders, select items, and automatically apply tiered customer/supplier discounts.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Create Invoice (DR / SI)</span>
+                <span class="submodule-desc">Convert approved Sales Orders into official Sales Invoices (SI) or Delivery Receipts (DR) with hardware barcode scanning verification.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">SO Report & SI / DR Report</span>
+                <span class="submodule-desc">Detailed inquiry list and status tracker over custom date ranges with printable logs for all issued receipts and invoices.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Create Credit Memo (Sales Return) & CM Reports</span>
+                <span class="submodule-desc">Process items returned by customers, auto-replenish warehouse inventory, and credit customer accounts.</span>
+              </li>
+            </ul>
+            <div class="module-card-footer">
+              <a href="#guide-sales-order" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">View SO User Guide &rarr;</a>
+              <a href="#guide-sales-invoice" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">View SI Guide &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 3. Management -->
+          <div class="module-card" data-category="management">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <span>MANAGEMENT</span>
+              </div>
+              <span class="badge badge-test">For Testing</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">SI Delivery & Dispatch</span>
+                <span class="submodule-desc">Track and update delivery status of SI/DR, assign delivery personnel, set delivery date.</span>
+                <span class="submodule-note">Review: Ability to revert/edit status</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">SI Payment & Collections</span>
+                <span class="submodule-desc">Record customer payments against invoices (cash, checks, terms, balance tracking, DM generation).</span>
+                <span class="submodule-note">Review: Revoking discounts & payments</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Credit Memo & PO Payment</span>
+                <span class="submodule-desc">Process customer credit memos, sales return balances, manage supplier disbursements, vendor ledgers, and printable payment vouchers.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Subsidy & Promo Claims</span>
+                <span class="submodule-desc">Track supplier subsidies, promo claims, and supplier allowances applied against costs or accounts.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">AR Reports & Salesman Summary</span>
+                <span class="submodule-desc">Company-wide Accounts Receivable summaries, customer aging balances, collection performance per salesman, and MXRT AR (CFP report).</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">SO Checks / PO Checks & Audit Log</span>
+                <span class="submodule-desc">Monitor check lifecycles (cleared, pending, bounced), generate DM on return check, system audit trails, and on-demand database backup.</span>
+              </li>
+            </ul>
+            <div class="module-card-footer">
+              <span class="badge badge-test">Core Finance Engine</span>
+            </div>
+          </div>
+
+          <!-- 4. Inventory -->
+          <div class="module-card" data-category="inventory">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </div>
+                <span>INVENTORY</span>
+              </div>
+              <span class="badge badge-core">Core Engine</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Master Stock Matrix</span>
+                <span class="submodule-desc">Real-time central matrix showing all products, warehouse on-hand quantities, and inventory values.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Stock Movement Ledger & Stock Cards</span>
+                <span class="submodule-desc">Comprehensive audit ledger tracing every item's inflow/outflow, SKU catalog, transaction history, batch levels, and running balance.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Receiving & Delivery Logs</span>
+                <span class="submodule-desc">Consolidated reports of incoming stock (purchases, transfers) and outgoing stock dispatched through sales.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Low Stock, Depleted & Expiring Batches</span>
+                <span class="submodule-desc">Automated warning reports for reorder points and FEFO (First-Expired, First-Out) dispatch monitoring.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Stock Transfer & Adjustment</span>
+                <span class="submodule-desc">Transfer quantities between branches or warehouses, with tagged reason codes for damage, count discrepancy, or shrinkage.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 5. Warehouse -->
+          <div class="module-card" data-category="warehouse">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <span>WAREHOUSE</span>
+              </div>
+              <span class="badge badge-core">Logistics</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Warehouses Setup</span>
+                <span class="submodule-desc">Setup and manage physical warehouse facilities, storage rooms, and facility profiles.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Products by Warehouse</span>
+                <span class="submodule-desc">View isolated inventory balances and stock distributions per specific physical facility.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Interactive Location Map</span>
+                <span class="submodule-desc">Visual layout of racks, bays, and shelves showing real-time slot occupancy and item coordinates.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Expiration & FEFO Tracker</span>
+                <span class="submodule-desc">Shelf-life monitor providing color-coded expiration alerts and priority picking recommendations.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 6. Customer -->
+          <div class="module-card" data-category="customer">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span>CUSTOMER</span>
+              </div>
+              <span class="badge badge-core">CRM</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Active / Inactive Customers</span>
+                <span class="submodule-desc">Maintain customer accounts: business name, delivery address, contact info, assigned salesman, credit terms, and status.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Customer Stats & Profile</span>
+                <span class="submodule-desc">View customer transaction history, lifetime purchase volumes, outstanding balances, and aging brackets.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 7. Products -->
+          <div class="module-card" data-category="products">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </div>
+                <span>PRODUCTS</span>
+              </div>
+              <span class="badge badge-test">For Testing</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Master SKU Directory</span>
+                <span class="submodule-desc">Master catalog of product codes, descriptions, categories, units of measure, case/loose barcodes, and VAT classification.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Price Logs & Top Products</span>
+                <span class="submodule-desc">Complete audit trail of price changes (who changed it, old vs new, timestamp) and sales volume analytics.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Scheduled Price Changes</span>
+                <span class="submodule-desc">Queue upcoming price updates scheduled to take effect automatically on a specified future date.</span>
+              </li>
+            </ul>
+            <div class="module-card-footer">
+              <a href="#guide-add-product" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">Add Product Guide &rarr;</a>
+              <a href="#guide-price-changes" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">Price Change Guide &rarr;</a>
+            </div>
+          </div>
+
+          <!-- 8. Suppliers -->
+          <div class="module-card" data-category="suppliers">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                </div>
+                <span>SUPPLIERS</span>
+              </div>
+              <span class="badge badge-core">Vendors</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Active / Inactive Suppliers</span>
+                <span class="submodule-desc">Supplier directory, vendor contacts, address, payment terms, and vendor ledger.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Supplier Discounts & Matrix</span>
+                <span class="submodule-desc">Configure supplier discount matrices, tier structures, trade discounts, and promotional deductions.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Discount Audit Log</span>
+                <span class="submodule-desc">Audit trail of changes made to supplier discount percentages, terms, and approval dates.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 9. Salesman -->
+          <div class="module-card" data-category="salesman">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <span>SALESMAN</span>
+              </div>
+              <span class="badge badge-core">Agents</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Salesman Profiles</span>
+                <span class="submodule-desc">Sales representatives, agent codes, contact numbers, territories, and commission setups.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Assign Customer</span>
+                <span class="submodule-desc">Assign and route specific customer store accounts to individual sales representatives.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Salesman Summary & Stats</span>
+                <span class="submodule-desc">Monitor quota progress, collected payments, and uncollected customer accounts under each salesman.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 10. Branch -->
+          <div class="module-card" data-category="branch">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <span>BRANCH</span>
+              </div>
+              <span class="badge badge-core">Multi-Location</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Branch Directory</span>
+                <span class="submodule-desc">Company branch locations, branch codes, contact details, and operational status.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">Branch Routing</span>
+                <span class="submodule-desc">Supports multi-branch inventory tracking, inter-branch transaction routing, and location-specific logins.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 11. HR -->
+          <div class="module-card" data-category="hr">
+            <div class="module-card-header">
+              <div class="module-card-title">
+                <div class="module-icon-wrap">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <span>HR & SECURITY</span>
+              </div>
+              <span class="badge badge-core">Administration</span>
+            </div>
+            <ul class="module-card-list">
+              <li class="submodule-item">
+                <span class="submodule-name">Staff & Employees</span>
+                <span class="submodule-desc">Employee profiles, job titles, department assignments, and contact details.</span>
+              </li>
+              <li class="submodule-item">
+                <span class="submodule-name">User Security & Permissions</span>
+                <span class="submodule-desc">Create login credentials, reset passwords, and assign accessible system modules per user role.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           PART 2: STEP-BY-STEP USER MANUALS
+           ==================================================================== -->
+
+      <!-- GUIDE 1: Purchase Order (PO) -->
+      <section class="guide-section" id="guide-purchase-order">
+        <div class="guide-header">
+          <div class="guide-badge-strip">
+            <span class="badge badge-primary">Purchases</span>
+            <span class="badge badge-test">Module for Testing</span>
+            <span class="badge badge-core">Procurement</span>
+          </div>
+          <h2 class="guide-title">Purchase Order (PO) User Guide</h2>
+          <p class="guide-summary">
+            Learn how to create, encode, and print purchase orders to suppliers, configure Days of Inventory (DOI) recommendations, and utilize the automated reorder planner.
+          </p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 01</span>
+              <h3 class="step-title">Accessing the Purchases Module</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="po-step-1">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>From the JDI System main home dashboard, locate and click on the <strong>Purchases</strong> option on the main navigation menu.</p>
+            <p>This action will redirect you to the Purchases portal where you can access the various modules relating to procurement, orders, and supplier fulfillment.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="screenshot-caption">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span>Figure 1.1: Home Dashboard — Selecting Purchases Menu</span>
+              </div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image1.png" alt="Home page main menu selecting Purchases" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Click to zoom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 02</span>
+              <h3 class="step-title">Selecting Supplier & Purchase Order Header</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="po-step-2">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>You will automatically be redirected to the <strong>Purchase Order</strong> module. You may also navigate between purchasing submodules using the top navigation bar.</p>
+            <p>Select which supplier to create an order for by clicking on the supplier name in the directory. This opens the <strong>Purchase Header Modal</strong>.</p>
+            
+            <div class="callout callout-info">
+              <div class="callout-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              </div>
+              <div class="callout-text">
+                <strong>Purchase Header Modal Fields:</strong>
+                <ul>
+                  <li><strong>Supplier Info:</strong> Displays selected supplier, registered contact person, and address.</li>
+                  <li><strong>Warehouse & Location:</strong> Choose the destination warehouse where supplier deliveries will be received.</li>
+                  <li><strong>Payment Terms:</strong> Specify invoice credit terms (e.g. 30 Days, COD).</li>
+                  <li><strong>Days of Inventory (DOI):</strong> Input your desired DOI to calculate system reorder recommendations.</li>
+                  <li><strong>Remarks:</strong> Optional notes or special instructions for the vendor.</li>
+                </ul>
+                <em>Click <strong>Save</strong> once finalized to proceed to item encoding.</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="screenshot-caption">
+                <span>Figure 1.2: Purchases Overview & Submodule Navigation</span>
+              </div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image2.png" alt="Purchases page and navigation" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="screenshot-caption">
+                <span>Figure 1.3: Purchase Header Modal — Warehouse, DOI, and Payment Terms</span>
+              </div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image3.png" alt="Purchase Header Modal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 03</span>
+              <h3 class="step-title">Adding Products & Specifying Quantities</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="po-step-3">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>From the product catalog list, browse available items and click on the <strong>+ Add</strong> button on any product row.</p>
+            <p>Clicking <strong>+ Add</strong> opens a dedicated quantity modal where you input the ordered quantity. Once entered, click <strong>Save</strong>. You can repeat this process to add multiple SKUs to the order.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="screenshot-caption">
+                <span>Figure 1.4: Product Selection Catalog with + Add Buttons</span>
+              </div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image4.png" alt="Product catalog to add items" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="screenshot-caption">
+                <span>Figure 1.5: Input Quantity Modal for Ordered Product</span>
+              </div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image5.png" alt="Input quantity modal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 04</span>
+              <h3 class="step-title">Reviewing Order, Reorder Planner, Finalizing & Printing</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="po-step-4">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>All selected products are compiled into an order summary table showing quantities, unit costs, and sub-totals. An <strong>Edit</strong> button on the right allows adjusting quantities if necessary.</p>
+            <div class="callout callout-tip">
+              <div class="callout-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div class="callout-text">
+                <strong>Reorder Planner Feature:</strong> Click on the <strong>Reorder Planner</strong> button to automatically evaluate sales velocity against your desired DOI and auto-populate recommended purchase quantities.
+              </div>
+            </div>
+            <p>Once verified, click <strong>Save Order</strong>. You can then click the <strong>Print</strong> button to generate the official Purchase Order document.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 1.6: Finalized Purchase Order Items & Action Controls</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image6.png" alt="Selected products table and save order" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 1.7: Printable Purchase Order (PO) Official Document Layout</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image7.png" alt="Printable Purchase Order document" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GUIDE 2: Purchase Receiving (RR) -->
+      <section class="guide-section" id="guide-purchase-receiving">
+        <div class="guide-header">
+          <div class="guide-badge-strip">
+            <span class="badge badge-primary">Purchases</span>
+            <span class="badge badge-test">Module for Testing</span>
+            <span class="badge badge-core">Inventory In</span>
+          </div>
+          <h2 class="guide-title">Purchase Receiving (RR) User Guide</h2>
+          <p class="guide-summary">
+            Step-by-step workflow for verifying incoming supplier shipments, recording delivered quantities, assigning warehouse bin locations, updating batch expiration dates, and printing the Receiving Receipt (RR).
+          </p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 01</span>
+              <h3 class="step-title">Navigating to Purchase Receiving</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="rr-step-1">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>From the Purchases section, click on the <strong>Purchase Receiving</strong> tab on the top navigation bar to open the pending receiving receipts queue.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 2.1: Navigation Bar — Purchase Receiving Button</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image8.png" alt="Purchase receiving navigation tab" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 2.2: Purchase Receiving Module — Pending Order Queue</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image9.png" alt="Purchase receiving pending list" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 02</span>
+              <h3 class="step-title">Encoding Received Qty, Bin Location & Expiry Date</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="rr-step-2">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>Click the <strong>Edit</strong> button next to any product on the ordered list. This opens the receiving detail modal:</p>
+            <ul>
+              <li><strong>Ordered Quantity:</strong> Reference count showing what was initially requested.</li>
+              <li><strong>Qty Received:</strong> Enter the exact physical quantity delivered by the supplier.</li>
+              <li><strong>Bin Location:</strong> Specify the exact rack/bin slot in the warehouse where items will be stored.</li>
+              <li><strong>Expiration Date:</strong> Encode the product batch shelf-life for automated FEFO tracking.</li>
+            </ul>
+            <p>Click <strong>Save</strong> to register the item and repeat for remaining products in the shipment.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 2.3: Receiving Modal — Qty Received, Bin Location & Expiration Date</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image10.png" alt="Receiving modal with bin location and expiry" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 03</span>
+              <h3 class="step-title">Generating RR Number & Printing Receiving Receipt</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="rr-step-3">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>After verifying all delivered items, click the <strong>Save Receive</strong> button. The system will commit the items to the inventory master matrix and generate a unique <strong>RR No.</strong></p>
+            <p>You can then click the <strong>Print RR</strong> button to print the official Receiving Receipt document for physical filing.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 2.4: Save Receive Button & RR No. Generation</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image11.png" alt="Save receive button screen" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 2.5: Printable Receiving Receipt (RR) Document</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image12.png" alt="Printable Receiving Receipt document" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GUIDE 3: Sales Order (SO) -->
+      <section class="guide-section" id="guide-sales-order">
+        <div class="guide-header">
+          <div class="guide-badge-strip">
+            <span class="badge badge-primary">Sales</span>
+            <span class="badge badge-test">Module for Testing</span>
+            <span class="badge badge-core">Revenue</span>
+          </div>
+          <h2 class="guide-title">Sales Order (SO) User Guide</h2>
+          <p class="guide-summary">
+            Encode customer orders, select products, apply automated tiered discounts based on supplier terms, review calculations, and generate printable Sales Orders.
+          </p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 01</span>
+              <h3 class="step-title">Accessing the Sales Module</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="so-step-1">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>From the main menu, select <strong>Sales</strong>. This will redirect you to the Sales overview portal where you can access Sales Orders, Invoices, Delivery Receipts, and Reports.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.1: Home Dashboard — Selecting Sales Menu</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image13.png" alt="Home menu selecting Sales" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.2: Sales Portal Overview & Left Navigation Menu</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image14.png" alt="Sales overview portal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 02</span>
+              <h3 class="step-title">Selecting Customer & Adding Order Products</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="so-step-2">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>In the <strong>Sales Order</strong> module, enter the <strong>Customer Code</strong> and designate credit terms.</p>
+            <p>Browse products and click the <strong>+</strong> button on any item. A modal appears allowing you to specify the quantity to add to the order.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.3: Sales Order Header & Customer Selection</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image15.png" alt="Customer selection and add items" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.4: Quantity Input Modal for Sales Order Item</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image16.png" alt="Quantity modal for sales order" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 03</span>
+              <h3 class="step-title">Discount Calculations, Finalizing & Printing SO</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="so-step-3">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>The products added automatically calculate discounted totals based on supplier terms and tier discounts. Use the <strong>Edit</strong> button to alter quantities or remove items if required.</p>
+            <p>Once finalized, click <strong>Save Order</strong> to generate the official <strong>SO No.</strong>. You can then click the <strong>Print SO</strong> button to generate the printable Sales Order document.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.5: Automatic Tiered Discount Calculations Table</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image17.png" alt="Discounted totals table" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.6: Save Order Action Control</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image18.png" alt="Save order button" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 3.7: Printable Sales Order (SO) Document Layout</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image19.png" alt="Printable Sales Order document" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GUIDE 4: Sales Invoice (SI) -->
+      <section class="guide-section" id="guide-sales-invoice">
+        <div class="guide-header">
+          <div class="guide-badge-strip">
+            <span class="badge badge-primary">Sales</span>
+            <span class="badge badge-test">Module for Testing</span>
+            <span class="badge badge-core">Invoicing</span>
+          </div>
+          <h2 class="guide-title">Sales Invoice (SI) & Barcode Scanning Guide</h2>
+          <p class="guide-summary">
+            Convert approved Sales Orders into official Sales Invoices (SI) with barcode scanning verification to guarantee picking accuracy before fulfillment.
+          </p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 01</span>
+              <h3 class="step-title">Accessing the Sales Invoice Module</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="si-step-1">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>From the sales menu on the left sidebar, click on <strong>Create Sales Invoice</strong> to enter the invoice conversion module.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 4.1: Sales Menu — Create Sales Invoice Option</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image20.png" alt="Create Sales Invoice navigation" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 4.2: Open Sales Orders Ready for Invoicing</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image21.png" alt="Open sales orders ready for invoice" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 02</span>
+              <h3 class="step-title">Barcode Scanning & Order Verification</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="si-step-2">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>Click on the <strong>⛶ View</strong> button to inspect the item contents of the specific Sales Order No.</p>
+            <div class="callout callout-tip">
+              <div class="callout-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h3"></path><path d="M20 7V4h-3"></path><path d="M4 17v3h3"></path><path d="M20 17v3h-3"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </div>
+              <div class="callout-text">
+                <strong>Hardware Barcode Scanning Workflow:</strong> Scan the physical barcodes of items on the order using a USB or wireless scanner. The system automatically populates the <em>Available Quantity</em> column, confirming exact physical matching.
+              </div>
+            </div>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 4.3: Real-Time Barcode Scanning Verification Interface</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image22.png" alt="Barcode scanning verification" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 03</span>
+              <h3 class="step-title">Saving Invoice & Printing Official SI Document</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="si-step-3">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>After verifying scanned quantities, click on the <strong>Save Invoice</strong> button. The system generates and displays the official <strong>SI No.</strong>.</p>
+            <p>You can then click the <strong>Print Invoice</strong> button to print the official Sales Invoice for delivery and accounts receivable processing.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 4.4: Save Invoice Action Control</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image23.png" alt="Save Invoice button" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 4.5: Printable Official Sales Invoice (SI) Layout</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image24.png" alt="Printable Sales Invoice document" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GUIDE 5: Products Master -->
+      <section class="guide-section" id="guide-add-product">
+        <div class="guide-header">
+          <div class="guide-badge-strip">
+            <span class="badge badge-primary">Products</span>
+            <span class="badge badge-test">Module for Testing</span>
+            <span class="badge badge-core">Master Catalog</span>
+          </div>
+          <h2 class="guide-title">Products Master Catalog User Guide</h2>
+          <p class="guide-summary">
+            Create new SKUs with automatic markup and loose price calculations, edit existing products, queue scheduled price changes, and export catalogs to Excel.
+          </p>
+        </div>
+
+        <!-- 5.1 Adding New Products -->
+        <div class="step-card">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 01</span>
+              <h3 class="step-title">Adding & Registering New Products</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="prod-step-1">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>Select <strong>Products</strong> on the home dashboard. To register a new SKU, click on the <strong>+ Add New Product</strong> button. This opens the Create Product Modal:</p>
+            <ul>
+              <li><strong>Description & Product Code:</strong> Unique SKU identifier and full name.</li>
+              <li><strong>Barcodes:</strong> Loose Barcode (single unit) and Case Barcode.</li>
+              <li><strong>Conversion Unit & Product Size:</strong> Number of loose pieces per case.</li>
+              <li><strong>Vatable Toggle:</strong> Enable or disable VAT application.</li>
+              <li><strong>Case Bare Cost & Case Markup:</strong> Cost basis and markup percentage.</li>
+              <li><strong>Auto-Calculations:</strong> <em>Case Price</em> and <em>Loose Price</em> are automatically computed from Case Bare Cost, Markup, and Conversion Unit.</li>
+              <li><strong>Supplier:</strong> Assign the primary supplying vendor.</li>
+            </ul>
+            <p>Click <strong>Create</strong> to register the product into the master database.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.1: Home Dashboard — Products Option</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image25.png" alt="Products main menu" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.2: Products Master Overview & + Add New Product Button</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image26.png" alt="Products module overview" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.3: Create Product Modal with Automated Markup & Price Engine</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image27.png" alt="Add product modal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5.2 Viewing & Editing Products -->
+        <div class="step-card" id="guide-edit-product">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 02</span>
+              <h3 class="step-title">Viewing & Editing Existing Products</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="prod-step-2">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>From the product catalog, locate the target SKU and click on the <strong>Edit</strong> button. The Edit Product modal allows modifying description, barcodes, costs, or supplier assignments. Click <strong>Update Product</strong> to save changes.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.4: Product List Table with Edit Action</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image28.png" alt="Product list with edit button" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.5: Edit Product Modal</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image29.png" alt="Edit product modal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5.3 Scheduled Price Changes -->
+        <div class="step-card" id="guide-price-changes">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 03</span>
+              <h3 class="step-title">Scheduling Automated Future Price Changes</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="prod-step-3">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>To schedule a future price change without disrupting current billing, click on the <strong>Scheduled Price Changes</strong> button.</p>
+            <p>In the modal, click <strong>+ Schedule Price Change</strong>. Select the <strong>Effective Date</strong>, then input the New Case Bare Cost and/or Markup. The system automatically calculates the New Case Price and Loose Price. Click <strong>Save</strong> — the system will automatically activate the new price on the designated effective date.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.6: Scheduled Price Changes Action Button</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image30.png" alt="Scheduled price changes button" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.7: Scheduled Price Changes Modal Overview</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image31.png" alt="Scheduled price changes modal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.8: + Schedule Price Change Form & Effective Date Selector</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image32.png" alt="Schedule price change form" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.9: Active Queue of Scheduled Product Price Adjustments</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image33.png" alt="Active queue of scheduled price changes" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5.4 Exporting Products -->
+        <div class="step-card" id="guide-export-products">
+          <div class="step-card-header">
+            <div class="step-meta">
+              <span class="step-number-badge">STEP 04</span>
+              <h3 class="step-title">Exporting Products to Excel</h3>
+            </div>
+            <label class="step-check-label">
+              <input type="checkbox" class="step-check-input" data-step-id="prod-step-4">
+              <span>Mark Tested</span>
+            </label>
+          </div>
+          <div class="step-description">
+            <p>Click on the <strong>Export</strong> button to download master product records as an Excel spreadsheet.</p>
+            <p>You can choose to export all products across all vendors or filter products supplied by specific vendors.</p>
+          </div>
+
+          <div class="screenshot-container">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.10: Export to Excel Button</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image34.png" alt="Export button" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+
+          <div class="screenshot-container" style="margin-top: 16px;">
+            <div class="screenshot-header">
+              <div class="browser-dots"><span class="browser-dot dot-red"></span><span class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+              <div class="screenshot-caption"><span>Figure 5.11: Export to Excel Modal — All Suppliers vs Specific Supplier Filter</span></div>
+            </div>
+            <div class="screenshot-img-wrap">
+              <img src="assets/images/image35.png" alt="Export to Excel modal" class="screenshot-img" loading="lazy">
+              <div class="zoom-hint">Click to zoom</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deployment Notes & Guide -->
+      <section class="guide-section" id="deployment-notes">
+        <div class="guide-header">
+          <div class="guide-badge-strip">
+            <span class="badge badge-live">Production Deployment</span>
+            <span class="badge badge-primary">Static Web</span>
+          </div>
+          <h2 class="guide-title">How to Deploy This Manual Online</h2>
+          <p class="guide-summary">
+            This documentation is built as a 100% static, zero-dependency HTML5, CSS3, and modern JavaScript portal. You can deploy it anywhere in under 1 minute.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <h3 class="step-title" style="margin-bottom: 12px;">Deployment Options:</h3>
+          <ul style="padding-left: 20px; line-height: 1.8;">
+            <li><strong>Local WAMP Server:</strong> Already configured and live right now at <a href="http://localhost/jtcinv-jm/manual/" target="_blank"><code>http://localhost/jtcinv-jm/manual/</code></a>.</li>
+            <li><strong>GitHub Pages:</strong> Push the <code>manual/</code> folder to a GitHub repository and turn on GitHub Pages in repository settings under <em>Settings &rarr; Pages</em>.</li>
+            <li><strong>Netlify / Vercel:</strong> Drag and drop the <code>c:\wamp64\www\jtcinv-jm\manual</code> folder onto the Netlify drop zone or connect your repository.</li>
+            <li><strong>Cloudflare Pages:</strong> Connect to your Git repository or upload the static assets folder.</li>
+            <li><strong>Apache / Nginx Web Server:</strong> Upload the folder directly to any <code>/var/www/html/</code> or <code>public_html/</code> directory.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close image preview">&times;</button>
+      <img src="" alt="Screenshot Full View" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Search Modal (Ctrl + K) -->
+  <div class="search-modal" id="searchModal" aria-hidden="true" role="dialog">
+    <div class="search-container">
+      <div class="search-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search modules, PO, Sales, Invoices, Barcode, etc..." autocomplete="off">
+        <kbd class="kbd-shortcut">ESC</kbd>
+      </div>
+      <ul class="search-results-list" id="searchResults">
+        <!-- Rendered by app.js -->
+      </ul>
+      <div class="search-footer">
+        <span>Navigation: Click or press Enter</span>
+        <span>Press ESC to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTopBtn" title="Back to top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
